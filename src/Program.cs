@@ -26,7 +26,6 @@ namespace Tubes_2
                 foreach(node i in this.nodes){
                     if (i.vertex == s){
                         return true;
-                        break;
                     }
                 }
                 return false;
@@ -43,9 +42,70 @@ namespace Tubes_2
                 i.printInfo();
             }
         }
+        public void AllVertex(){
+            Console.Write("[");
+            for(int i=0; i<this.nodes.Count; i++){
+                Console.Write(this.nodes[i].vertex);
+                if (i != this.nodes.Count-1){
+                    Console.Write(", ");
+                }
+            }
+            Console.Write("]\n");
+        }
+
+        public int searchIdxNode(string s){
+            if (this.nodes.Count == 0){
+                return -1;
+            }
+            else {
+                int j  = -1;
+                foreach(node i in this.nodes){
+                    j++;
+                    if (i.vertex == s){
+                        return j;
+                    }
+                }
+                return -1;
+            }
+        }
+
+        public graph bfs(string vertexawal, string vertextujuan){
+            node awal = this.nodes[searchIdxNode(vertexawal)];
+            node tujuan = this.nodes[searchIdxNode(vertextujuan)];
+            graph travelledNodes = new graph();
+            int idxTrav;
+            Console.Write(awal.adjCount() == 0);
+            if (awal.adjCount() != 0)
+            // Kalau tidak trigger, return list node isi node awal saja
+            {
+                travelledNodes.addNode(awal);
+                idxTrav = 0;
+                bfsRekurs(idxTrav, tujuan, travelledNodes);
+            }
+            return travelledNodes; 
+        }
+        public void bfsRekurs(int idxTrav, node tujuan, graph travelledNodes){
+            if (travelledNodes.contain(tujuan.vertex) || idxTrav == travelledNodes.nodes.Count)
+            {}
+            else{
+                foreach(node i in travelledNodes.nodes[idxTrav].adjacent){
+                    if (travelledNodes.contain(tujuan.vertex)) {
+                        break;
+                    }
+                    else if(travelledNodes.contain(i.vertex)){
+                        // Nothing
+                    }
+                    else {
+                        travelledNodes.addNode(i);
+                    }
+                }
+                bfsRekurs(idxTrav+1, tujuan, travelledNodes);
+            }
+        }
         
 
     }
+
     class node {
         public string vertex;
         public List<node> adjacent;
@@ -80,6 +140,17 @@ namespace Tubes_2
             this.adjacent.Add(x);
             x.adjacent.Add(this);
         }
+        public int adjCount(){
+            return this.adjacent.Count;
+        }
+        public bool containAdj(node x){
+            foreach (node i in this.adjacent){
+                if (i == x){
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     class Program
@@ -97,21 +168,21 @@ namespace Tubes_2
         {
             graph a = new graph();
             // Untuk Read File
-            string[] lines = System.IO.File.ReadAllLines(@"E:\ITB\Semester_4\Program\C#\tes.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\tes.txt");
             foreach (string line in lines)
             {
-                string[] x = line.Split(" ");
-                if (!a.contain(x[0])){
-                    node temp = new node(x[0]);
+                string[] y = line.Split(" ");
+                if (!a.contain(y[0])){
+                    node temp = new node(y[0]);
                     a.addNode(temp);
-                    if (!a.contain(x[1])){
-                        node temp1 = new node(x[1]);
+                    if (!a.contain(y[1])){
+                        node temp1 = new node(y[1]);
                         a.addNode(temp1);
                         temp.addAdj(temp1);
                     }
                     else {
                         foreach(node i in a.nodes){
-                            if(i.vertex == x[1]){
+                            if(i.vertex == y[1]){
                                 temp.addAdj(i);
                             }
                         }
@@ -119,15 +190,15 @@ namespace Tubes_2
                 }
                 else {
                     for (int i = 0 ; i<a.nodes.Count ; i++){
-                        if (a.nodes[i].vertex == x[0]){
-                            if (!a.contain(x[1])){
-                                node temp1 = new node(x[1]);
+                        if (a.nodes[i].vertex == y[0]){
+                            if (!a.contain(y[1])){
+                                node temp1 = new node(y[1]);
                                 a.addNode(temp1);
                                 a.nodes[i].addAdj(temp1);
                             }
                             else {
                                 foreach(node j in a.nodes){
-                                    if(j.vertex == x[1]){
+                                    if(j.vertex == y[1]){
                                         a.nodes[i].addAdj(j);
                                     }
                                 }
@@ -137,7 +208,10 @@ namespace Tubes_2
                 }
 
             }
-            a.AllInfo();
+            // a.AllInfo();
+            a.AllVertex();
+            graph x = a.bfs("A","U");
+            x.AllVertex();
 
         }
     }

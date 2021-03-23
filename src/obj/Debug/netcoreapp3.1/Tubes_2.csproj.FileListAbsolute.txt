@@ -11,3 +11,16 @@ E:\ITB\Semester_4\Program\C#\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.csproj.Core
 E:\ITB\Semester_4\Program\C#\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.dll
 E:\ITB\Semester_4\Program\C#\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.pdb
 E:\ITB\Semester_4\Program\C#\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.genruntimeconfig.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.csprojAssemblyReference.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.AssemblyInfoInputs.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.AssemblyInfo.cs
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.pdb
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.exe
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.deps.json
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.runtimeconfig.json
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.runtimeconfig.dev.json
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.pdb
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.genruntimeconfig.cache

@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "lrmLA1S2OXjs6yAcTAF4TMfnlKBtEaeL6w7mNq5y6L4XXgzwcPFDCTOyY2bqeiBTWfRrizjFzgMaCSX4CjuRew==",
+  "dgSpecHash": "zLip3vmlEfx1lMe0/lZK6jJxUkU0OppRWck6eBeXtTwdeG+le3DwO6KGko1OTap1dI8F7GGyEqh3/J/KT8bmZw==",
   "success": true,
-  "projectFilePath": "E:\\ITB\\Semester_4\\Program\\C#\\Tubes_2\\Tubes_2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Jeremy\\Documents\\Backup Jeremy 5 Sep 20\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes2\\Tubes2STIMA\\src\\Tubes_2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jeremy\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Jeremy\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Jeremy\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Jeremy\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
   "logs": []
 }

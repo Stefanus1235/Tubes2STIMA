@@ -1,2 +1,11 @@
-tes aja
-dulus
+A G
+A C
+A Z
+C W
+C U
+C X
+G F
+G X
+F X
+F G
+F E
