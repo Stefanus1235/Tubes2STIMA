@@ -5,8 +5,12 @@ using System.IO;
 
 namespace Tubes_2
 {
+    
     class graph {
         public List<node> nodes;
+
+
+
 
         public graph(){
             this.nodes = new List<node>();
@@ -52,6 +56,15 @@ namespace Tubes_2
             }
             Console.Write("]\n\n");
         }
+        public void AllVertexWithArrow(){
+            for(int i=0; i<this.nodes.Count; i++){
+                Console.Write(this.nodes[i].vertex);
+                if (i != this.nodes.Count-1){
+                    Console.Write(" -> ");
+                }
+            }
+            Console.WriteLine();
+        }
 
         public int searchIdxNode(string s){
             if (this.nodes.Count == 0){
@@ -69,17 +82,21 @@ namespace Tubes_2
             }
         }
 
+
         public graph bfs(string vertexawal, string vertextujuan){
             node awal = this.nodes[searchIdxNode(vertexawal)];
             node tujuan = this.nodes[searchIdxNode(vertextujuan)];
             graph travelledNodes = new graph();
+            // graph parentGraph = new graph();
             int idxTrav;
             if (awal.adjCount() != 0)
             // Kalau tidak trigger, return list node isi node awal saja
             {
                 travelledNodes.addNode(awal);
+                // parentGraph.Add(awal);
                 idxTrav = 0;
                 bfsRekurs(idxTrav, tujuan, travelledNodes);
+
             }
             return travelledNodes; 
         }
@@ -100,6 +117,53 @@ namespace Tubes_2
                     }
                 }
                 bfsRekurs(idxTrav+1, tujuan, travelledNodes);
+            }
+        }
+
+
+        public graph bfs(string vertexawal, string vertextujuan, graph strippedGraph){
+            node awal = this.nodes[searchIdxNode(vertexawal)];
+            node tujuan = this.nodes[searchIdxNode(vertextujuan)];
+            graph travelledNodes = new graph();
+            graph parentsGraph = new graph();
+            int idxTrav;
+            if (awal.adjCount() != 0)
+            // Kalau tidak trigger, return list node isi node awal saja
+            {
+                travelledNodes.addNode(awal);
+                parentsGraph.nodes.Add(this.nodes[searchIdxNode(vertexawal)]);
+                idxTrav = 0;
+                bfsRekurs(idxTrav, tujuan, travelledNodes, parentsGraph);
+
+
+                int i = travelledNodes.nodes.Count-1;
+                while (i > 0){
+                    strippedGraph.nodes.Insert(0,travelledNodes.nodes[i]);
+                    i = travelledNodes.searchIdxNode(parentsGraph.nodes[i].vertex);
+                }
+            }
+            strippedGraph.nodes.Insert(0,travelledNodes.nodes[0]);
+            return travelledNodes;
+        }
+
+        public void bfsRekurs(int idxTrav, node tujuan, graph travelledNodes, graph parentsGraph){
+            if (idxTrav == travelledNodes.nodes.Count || travelledNodes.contain(tujuan.vertex))
+            {}
+            else{
+                foreach(node i in travelledNodes.nodes[idxTrav].adjacent){
+                    if (travelledNodes.contain(tujuan.vertex)) {
+                        break;
+                    }
+                    else if(travelledNodes.contain(i.vertex)){
+                        // Nothing
+                    }
+                    else {
+                        travelledNodes.addNode(i);
+                        parentsGraph.nodes.Add(travelledNodes.nodes[idxTrav]);
+                    }
+                }
+                bfsRekurs(idxTrav+1, tujuan, travelledNodes, parentsGraph);
+
             }
         }
 
@@ -140,6 +204,8 @@ namespace Tubes_2
                 bfsRekurs(idxTrav+1, nodesOnDepth, travelledNodes, dist, distList);
             }
         }
+
+
 
         public graph dfs(string awal,string tujuan){
             node node_awal = this.nodes[searchIdxNode(awal)];
@@ -194,6 +260,10 @@ namespace Tubes_2
             if (method == "BFS"){
                 nodesWithMutualAdjacent = this.bfs(nodeName,2);
             }
+            else if (method == "DFS"){
+                // nodesWithMutualAdjacent = this.dfs(nodeName,2);
+                // Kode untuk DFS dengan 2 node dari node dengan nama 'nodeName'
+            }
 
             // Sort
             for(int i=0; i < nodesWithMutualAdjacent.nodes.Count; i++){
@@ -224,6 +294,39 @@ namespace Tubes_2
                 }
                 Console.WriteLine();
             }
+        }
+
+        public void friendExplore(string namaNodeAwal, string namaNodeTujuan, string method){
+            graph ExploreResult = new graph();
+            if (method == "BFS"){
+                graph dummy =  this.bfs(namaNodeAwal,namaNodeTujuan,ExploreResult);
+            }
+            else if (method == "DFS"){
+                ExploreResult = this.dfs(namaNodeAwal,namaNodeTujuan);
+            }
+            Console.WriteLine("Nama akun: {0} dan {1}", namaNodeAwal, namaNodeTujuan);
+            if(ExploreResult.nodes.Count <= 2){
+                Console.WriteLine("Tidak ada jalur koneksi yang tersedia");
+                Console.WriteLine("Anda harus memulai koneksi baru itu sendiri.");
+            }
+            else{
+                Console.Write("{0}", ExploreResult.nodes.Count-2);
+                if (ExploreResult.nodes.Count-2 == 1){ 
+                    Console.Write("st");
+                }
+                else if (ExploreResult.nodes.Count-2 == 2){ 
+                    Console.Write("nd");
+                }
+                else if (ExploreResult.nodes.Count-2 == 3){ 
+                    Console.Write("rd");
+                }
+                else {
+                    Console.Write("th");
+                }
+                Console.Write("-degree connection\n");
+                ExploreResult.AllVertexWithArrow();
+            }
+            
         }
         
 
@@ -298,7 +401,6 @@ namespace Tubes_2
             return count;
         }
     }
-
     class Program
     {
         node searching(graph g,string s){
@@ -369,8 +471,10 @@ namespace Tubes_2
             graph b = a.bfs("G", dist);
             b.AllVertex();
 
+            graph empty = new graph();
             graph w = a;
             w.friendRecommendation("G","BFS");
+            w.friendExplore("A","G","BFS");
         }
     }
 }
