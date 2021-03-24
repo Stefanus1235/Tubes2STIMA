@@ -83,6 +83,7 @@ namespace Tubes_2
             }
             return travelledNodes; 
         }
+
         public void bfsRekurs(int idxTrav, node tujuan, graph travelledNodes){
             if (travelledNodes.contain(tujuan.vertex) || idxTrav == travelledNodes.nodes.Count)
             {}
@@ -102,7 +103,45 @@ namespace Tubes_2
             }
         }
 
-                public graph dfs(string awal,string tujuan){
+        public graph bfs(string vertexawal, int dist){
+            node awal = this.nodes[searchIdxNode(vertexawal)];
+            graph nodesOnDepth = new graph();
+            
+            int idxTrav = 0;
+            if (awal.adjCount() != 0)
+            // Kalau tidak trigger, return list node isi node awal saja
+            {
+                
+                graph travelledNodes = new graph();
+                travelledNodes.addNode(awal);
+                List<int> distList = new List<int>();
+                distList.Add(0);
+                bfsRekurs(idxTrav, nodesOnDepth, travelledNodes, dist, distList);
+            }
+            return nodesOnDepth; 
+        }
+        public void bfsRekurs(int idxTrav, graph nodesOnDepth, graph travelledNodes, int dist, List<int> distList){
+            if (idxTrav == travelledNodes.nodes.Count || dist == 0)
+            {}
+            else{
+                foreach(node i in travelledNodes.nodes[idxTrav].adjacent){
+                    if(travelledNodes.contain(i.vertex)){
+                        // Nothing
+                    }
+                    else if (distList[idxTrav]+1 < dist){
+                        travelledNodes.addNode(i);
+                        distList.Add(distList[idxTrav]+1);
+                    }
+                    else {
+
+                        nodesOnDepth.addNode(i);
+                    }
+                }
+                bfsRekurs(idxTrav+1, nodesOnDepth, travelledNodes, dist, distList);
+            }
+        }
+
+        public graph dfs(string awal,string tujuan){
             node node_awal = this.nodes[searchIdxNode(awal)];
             node node_tujuan = this.nodes[searchIdxNode(tujuan)];
             graph travelled_node = new graph();
@@ -324,7 +363,7 @@ namespace Tubes_2
                 }
 
             }
-            // a.AllInfo();
+            a.AllInfo();
             Console.Write("This is the nodes in graph.\n");
 
             a.AllVertex();
@@ -333,7 +372,12 @@ namespace Tubes_2
             graph x = a.bfs(vawal,vtujuan);
             Console.Write("This is the BFS from {0} to {1}\n" ,vawal,vtujuan);
             x.AllVertex();
-            x.friendRecommendation("G");
+
+            // 
+            int dist = 3;
+            Console.Write("This is the BFS from {0} to {1} node away from it\n",vawal,dist);
+            graph b = a.bfs("G", dist);
+            b.AllVertex();
 
         }
     }
