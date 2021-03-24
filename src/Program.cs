@@ -102,6 +102,46 @@ namespace Tubes_2
             }
         }
 
+                public graph dfs(string awal,string tujuan){
+            node node_awal = this.nodes[searchIdxNode(awal)];
+            node node_tujuan = this.nodes[searchIdxNode(tujuan)];
+            graph travelled_node = new graph();
+            travelled_node.addNode(node_awal);
+            dfs_rek(node_awal,node_tujuan,travelled_node);
+            return (travelled_node);
+        }
+
+        public void dfs_rek(node aktif,node tujuan,graph travelled){
+            if (aktif == tujuan){
+                Console.WriteLine("ketemu");
+                travelled.AllVertex();
+            }
+            
+            else {
+                if (aktif.adjCount() == 0){
+                    Console.WriteLine("Dead End");
+                }
+                else {
+                    if (!travelled.contain(tujuan.vertex)){
+
+                        foreach (node i in aktif.adjacent){
+                            if (!travelled.contain(i.vertex))
+                            {
+                                travelled.addNode(i);
+                                dfs_rek(i,tujuan,travelled);
+                                if (travelled.contain(tujuan.vertex)){
+                                    Console.WriteLine("cok");
+                                    break;    
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
 
         public List<node> getAllNodesWithMutualAdj(string nodeName){
             // METHOD INI SUDAH TERMASUK SORTING.
