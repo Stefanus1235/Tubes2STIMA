@@ -182,47 +182,38 @@ namespace Tubes_2
 
 
 
-        public List<node> getAllNodesWithMutualAdj(string nodeName){
+        public graph getAllNodesWithMutualAdj(string nodeName, string method){
             // METHOD INI SUDAH TERMASUK SORTING.
 
             // Cari node dengan nama nodeName
             node TheNode = this.nodes[searchIdxNode(nodeName)];
 
-            // List node yang akan direturn.
-            List<node> nodesWithMutualAdjacent = new List<node>();
-            
-            // Dapatkan semua node yang memiliki tetangga yang sama dengan TheNode.
-            foreach(node i in this.nodes){
-                // Kalau i sama dengan TheNode, skip.
-                if (i == TheNode){}
-                // Kalau i berupa tetangga langsung TheNode, skip
-                else if (TheNode.containAdj(i)){}
-                else {
-                    // Kalau i memiliki tetangga yang sama dengan TheNode, tambahkan ke nodesWithMutualAdjacent
-                    if(TheNode.countMutualAdjacent(i) > 0){
-                        nodesWithMutualAdjacent.Add(i);
-                    }
-                }
+            // Graf yang akan direturn.
+            graph nodesWithMutualAdjacent = new graph();
+
+            if (method == "BFS"){
+                nodesWithMutualAdjacent = this.bfs(nodeName,2);
             }
 
             // Sort
-            for(int i=0; i < nodesWithMutualAdjacent.Count; i++){
+            for(int i=0; i < nodesWithMutualAdjacent.nodes.Count; i++){
                 int maxIdx = i;
-                for (int j=i+1; j< nodesWithMutualAdjacent.Count; j++){
-                    if (nodesWithMutualAdjacent[maxIdx].countMutualAdjacent(TheNode) < nodesWithMutualAdjacent[j].countMutualAdjacent(TheNode)){
+                for (int j=i+1; j< nodesWithMutualAdjacent.nodes.Count; j++){
+                    if (nodesWithMutualAdjacent.nodes[maxIdx].countMutualAdjacent(TheNode) < nodesWithMutualAdjacent.nodes[j].countMutualAdjacent(TheNode)){
                         maxIdx = j;
                     }
                 }
-                node swap = nodesWithMutualAdjacent[i];
-                nodesWithMutualAdjacent[i] = nodesWithMutualAdjacent[maxIdx];
-                nodesWithMutualAdjacent[maxIdx] = swap;
+                node swap = nodesWithMutualAdjacent.nodes[i];
+                nodesWithMutualAdjacent.nodes[i] = nodesWithMutualAdjacent.nodes[maxIdx];
+                nodesWithMutualAdjacent.nodes[maxIdx] = swap;
             }
             return nodesWithMutualAdjacent;
         }
         
-        public void friendRecommendation(string nodename){
+        public void friendRecommendation(string nodename, string method){
             graph friendRec = new graph();
-            friendRec.nodes = this.getAllNodesWithMutualAdj(nodename);
+            friendRec = this.getAllNodesWithMutualAdj(nodename,method);
+
             Console.WriteLine("Daftar rekomendasi teman untuk akun {0}:", nodename);
             for (int i=0; i < friendRec.nodes.Count; i++){
                 Console.WriteLine("Nama akun: {0}", friendRec.nodes[i].vertex); 
@@ -373,12 +364,13 @@ namespace Tubes_2
             Console.Write("This is the BFS from {0} to {1}\n" ,vawal,vtujuan);
             x.AllVertex();
 
-            // 
             int dist = 3;
             Console.Write("This is the BFS from {0} to {1} node away from it\n",vawal,dist);
             graph b = a.bfs("G", dist);
             b.AllVertex();
 
+            graph w = a;
+            w.friendRecommendation("G","BFS");
         }
     }
 }
