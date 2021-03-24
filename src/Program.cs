@@ -50,7 +50,7 @@ namespace Tubes_2
                     Console.Write(", ");
                 }
             }
-            Console.Write("]\n");
+            Console.Write("]\n\n");
         }
 
         public int searchIdxNode(string s){
@@ -74,7 +74,6 @@ namespace Tubes_2
             node tujuan = this.nodes[searchIdxNode(vertextujuan)];
             graph travelledNodes = new graph();
             int idxTrav;
-            Console.Write(awal.adjCount() == 0);
             if (awal.adjCount() != 0)
             // Kalau tidak trigger, return list node isi node awal saja
             {
@@ -100,6 +99,60 @@ namespace Tubes_2
                     }
                 }
                 bfsRekurs(idxTrav+1, tujuan, travelledNodes);
+            }
+        }
+
+
+        public List<node> getAllNodesWithMutualAdj(string nodeName){
+            // METHOD INI SUDAH TERMASUK SORTING.
+
+            // Cari node dengan nama nodeName
+            node TheNode = this.nodes[searchIdxNode(nodeName)];
+
+            // List node yang akan direturn.
+            List<node> nodesWithMutualAdjacent = new List<node>();
+            
+            // Dapatkan semua node yang memiliki tetangga yang sama dengan TheNode.
+            foreach(node i in this.nodes){
+                // Kalau i sama dengan TheNode, skip.
+                if (i == TheNode){}
+                // Kalau i berupa tetangga langsung TheNode, skip
+                else if (TheNode.containAdj(i)){}
+                else {
+                    // Kalau i memiliki tetangga yang sama dengan TheNode, tambahkan ke nodesWithMutualAdjacent
+                    if(TheNode.countMutualAdjacent(i) > 0){
+                        nodesWithMutualAdjacent.Add(i);
+                    }
+                }
+            }
+
+            // Sort
+            for(int i=0; i < nodesWithMutualAdjacent.Count; i++){
+                int maxIdx = i;
+                for (int j=i+1; j< nodesWithMutualAdjacent.Count; j++){
+                    if (nodesWithMutualAdjacent[maxIdx].countMutualAdjacent(TheNode) < nodesWithMutualAdjacent[j].countMutualAdjacent(TheNode)){
+                        maxIdx = j;
+                    }
+                }
+                node swap = nodesWithMutualAdjacent[i];
+                nodesWithMutualAdjacent[i] = nodesWithMutualAdjacent[maxIdx];
+                nodesWithMutualAdjacent[maxIdx] = swap;
+            }
+            return nodesWithMutualAdjacent;
+        }
+        
+        public void friendRecommendation(string nodename){
+            graph friendRec = new graph();
+            friendRec.nodes = this.getAllNodesWithMutualAdj(nodename);
+            Console.WriteLine("Daftar rekomendasi teman untuk akun {0}:", nodename);
+            for (int i=0; i < friendRec.nodes.Count; i++){
+                Console.WriteLine("Nama akun: {0}", friendRec.nodes[i].vertex); 
+                Console.WriteLine("{0} mutual friends:", friendRec.nodes[i].countMutualAdjacent(this.nodes[searchIdxNode(nodename)]));
+                List<node> mutualFriends = friendRec.nodes[i].getAllMutualAdjacent(this.nodes[searchIdxNode(nodename)]);
+                foreach(node j in mutualFriends){
+                    Console.WriteLine("{0}", j.vertex);
+                }
+                Console.WriteLine();
             }
         }
         
@@ -150,6 +203,29 @@ namespace Tubes_2
                 }
             }
             return false;
+        }
+
+        public List<node> getAllMutualAdjacent(node x){
+            List<node> mutualAdjacent = new List<node>();
+            foreach(node i in x.adjacent){
+                foreach(node j in this.adjacent){
+                    if(i == j){
+                        mutualAdjacent.Add(i);
+                    }
+                }
+            }
+            return mutualAdjacent;
+        }
+        public int countMutualAdjacent(node x){
+            int count = 0;
+            foreach(node i in x.adjacent){
+                foreach(node j in this.adjacent){
+                    if(i == j){
+                        count++;
+                    }
+                }
+            }
+            return count;
         }
     }
 
@@ -209,9 +285,15 @@ namespace Tubes_2
 
             }
             // a.AllInfo();
+            Console.Write("This is the nodes in graph.\n");
+
             a.AllVertex();
-            graph x = a.bfs("A","U");
+            string vawal = "G";
+            string vtujuan = "H";
+            graph x = a.bfs(vawal,vtujuan);
+            Console.Write("This is the BFS from {0} to {1}\n" ,vawal,vtujuan);
             x.AllVertex();
+            x.friendRecommendation("G");
 
         }
     }
