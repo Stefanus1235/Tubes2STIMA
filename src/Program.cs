@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic; 
-using System.IO; 
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Tubes_2
@@ -215,6 +215,8 @@ namespace Tubes_2
             return (travelled_node);
         }
 
+        
+
         public void dfs_rek(node aktif,node tujuan,graph trav){
             if (aktif == tujuan){
             
@@ -280,7 +282,7 @@ namespace Tubes_2
         }
         
 
-    }
+    
 
 
 
@@ -385,6 +387,16 @@ namespace Tubes_2
             }
         }
 
+        public bool AllAdjVisited(graph g){
+            foreach (node i in this.adjacent){
+                if (!g.contain(i.vertex)){
+                    return false;
+                }
+            }
+            return true;
+            
+        }
+
         public void printInfo(){
             Console.WriteLine("Vertices : {0}",this.vertex);
             if (this.adjacent.Count == 0){
@@ -439,20 +451,11 @@ namespace Tubes_2
     }
     class Program
     {
-        node searching(graph g,string s){
-            node temp = new node("noval");
-            foreach(node i in g.nodes){
-                if (i.vertex == s){
-                    temp = new node(i);
-                }
-            }
-            return temp;
-        }
         static void Main(string[] args)
         {
             graph a = new graph();
             // Untuk Read File
-            string[] lines = System.IO.File.ReadAllLines(@"E:\ITB\Semester_4\Stima\Tubes2STIMA\src\tes.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"E:\ITB\Semester_4\Stima\Tubes2STIMA\src\tes1.txt");
             foreach (string line in lines)
             {
                 string[] y = line.Split(" ");
@@ -487,6 +490,7 @@ namespace Tubes_2
                                     }
                                 }
                             }
+                        
                         }
                     }   
                 }
@@ -511,8 +515,12 @@ namespace Tubes_2
             // graph w = a;
             // w.friendRecommendation("G","BFS");
             // w.friendExplore("A","G","BFS");
-
-            a.dfs("A","H");
+            a.nodes.Sort((x, y) => x.vertex.CompareTo(y.vertex));
+            foreach(node i in a.nodes){
+                i.adjacent.Sort((x, y) => x.vertex.CompareTo(y.vertex));
+            }
+            a.AllInfo();
+            //udah ke sort semua, jadi ngga bingung tentang alphabetical order dalam search
         }
     }
 }
