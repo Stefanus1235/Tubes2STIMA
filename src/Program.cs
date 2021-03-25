@@ -5,13 +5,11 @@ using System.IO;
 
 namespace Tubes_2
 {
-    
+    public static class flag{
+        public static bool ketemu = false;
+    }
     class graph {
         public List<node> nodes;
-
-
-
-
         public graph(){
             this.nodes = new List<node>();
         }
@@ -208,6 +206,7 @@ namespace Tubes_2
 
 
         public graph dfs(string awal,string tujuan){
+            flag.ketemu = false;
             node node_awal = this.nodes[searchIdxNode(awal)];
             node node_tujuan = this.nodes[searchIdxNode(tujuan)];
             graph travelled_node = new graph();
@@ -216,35 +215,72 @@ namespace Tubes_2
             return (travelled_node);
         }
 
-        public void dfs_rek(node aktif,node tujuan,graph travelled){
+        public void dfs_rek(node aktif,node tujuan,graph trav){
             if (aktif == tujuan){
+            
                 Console.WriteLine("ketemu");
-                travelled.AllVertex();
+                flag.ketemu = true;
+                
+                trav.AllVertex();
             }
             
             else {
-                if (aktif.adjCount() == 0){
+                if (aktif.adjCount() == 0 || aktif.AllAdjVisited(trav)){
                     Console.WriteLine("Dead End");
                 }
                 else {
-                    if (!travelled.contain(tujuan.vertex)){
+                    if (!trav.contain(tujuan.vertex)){
 
-                        foreach (node i in aktif.adjacent){
-                            if (!travelled.contain(i.vertex))
-                            {
-                                travelled.addNode(i);
-                                dfs_rek(i,tujuan,travelled);
-                                if (travelled.contain(tujuan.vertex)){
-                                    Console.WriteLine("cok");
-                                    break;    
+                        foreach (node i in aktif.adjacent ){
+                            if (!flag.ketemu){
+                                graph travelled = new graph();
+                                foreach (node j in trav.nodes){
+                                    travelled.addNode(j);
                                 }
-                                
+
+                                if (!travelled.contain(i.vertex))
+                                {
+                                    travelled.addNode(i);
+                                    dfs_rek(i,tujuan,travelled);
+                                    if (travelled.contain(tujuan.vertex)){
+                                        Console.WriteLine("cok");
+                                        return;    
+                                    }
+                                    
+                                }
                             }
                         }
                     }
                 }
             }
         }
+
+        public void dfsrecommend(string s){
+            int aktif = this.searchIdxNode(s);
+            node node_aktif = this.nodes[aktif];
+            //copy adj
+            graph adj_aktif = new graph();
+            foreach (node i in node_aktif.adjacent){
+                adj_aktif.addNode(i);
+            }
+            graph friend_recommend = new graph();
+            foreach (node i in this.nodes){
+                node temp = new node(i.vertex);
+                if (temp.vertex != node_aktif.vertex && (!adj_aktif.contain(temp.vertex))){
+                    friend_recommend.addNode(temp);
+                }
+                foreach (node j in i.adjacent){
+                    int num = adj_aktif.searchIdxNode(j.vertex);
+                    if(num != -1){
+                        temp.addAdj(adj_aktif.nodes[num]);
+                    }
+                }
+            }
+            friend_recommend.AllInfo();
+        }
+        
+
+    }
 
 
 
@@ -416,7 +452,7 @@ namespace Tubes_2
         {
             graph a = new graph();
             // Untuk Read File
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\tes.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"E:\ITB\Semester_4\Stima\Tubes2STIMA\src\tes.txt");
             foreach (string line in lines)
             {
                 string[] y = line.Split(" ");
@@ -456,25 +492,27 @@ namespace Tubes_2
                 }
 
             }
-            a.AllInfo();
-            Console.Write("This is the nodes in graph.\n");
+            // a.AllInfo();
+            // Console.Write("This is the nodes in graph.\n");
 
-            a.AllVertex();
-            string vawal = "G";
-            string vtujuan = "H";
-            graph x = a.bfs(vawal,vtujuan);
-            Console.Write("This is the BFS from {0} to {1}\n" ,vawal,vtujuan);
-            x.AllVertex();
+            // a.AllVertex();
+            // string vawal = "G";
+            // string vtujuan = "H";
+            // graph x = a.bfs(vawal,vtujuan);
+            // Console.Write("This is the BFS from {0} to {1}\n" ,vawal,vtujuan);
+            // x.AllVertex();
 
-            int dist = 3;
-            Console.Write("This is the BFS from {0} to {1} node away from it\n",vawal,dist);
-            graph b = a.bfs("G", dist);
-            b.AllVertex();
+            // int dist = 3;
+            // Console.Write("This is the BFS from {0} to {1} node away from it\n",vawal,dist);
+            // graph b = a.bfs("G", dist);
+            // b.AllVertex();
 
-            graph empty = new graph();
-            graph w = a;
-            w.friendRecommendation("G","BFS");
-            w.friendExplore("A","G","BFS");
+            // graph empty = new graph();
+            // graph w = a;
+            // w.friendRecommendation("G","BFS");
+            // w.friendExplore("A","G","BFS");
+
+            a.dfs("A","H");
         }
     }
 }

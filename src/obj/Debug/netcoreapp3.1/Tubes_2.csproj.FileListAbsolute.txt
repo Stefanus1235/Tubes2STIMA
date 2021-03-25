@@ -24,3 +24,16 @@ C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algo
 C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.dll
 C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.pdb
 C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.genruntimeconfig.cache
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.exe
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.deps.json
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.runtimeconfig.json
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.runtimeconfig.dev.json
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.dll
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\bin\Debug\netcoreapp3.1\Tubes_2.pdb
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.csprojAssemblyReference.cache
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.AssemblyInfoInputs.cache
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.AssemblyInfo.cs
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.csproj.CoreCompileInputs.cache
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.dll
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.pdb
+E:\ITB\Semester_4\Stima\Tubes2STIMA\src\obj\Debug\netcoreapp3.1\Tubes_2.genruntimeconfig.cache
