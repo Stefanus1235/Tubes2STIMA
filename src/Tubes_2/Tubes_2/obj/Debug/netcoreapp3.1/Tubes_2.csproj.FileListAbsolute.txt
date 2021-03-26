@@ -18,3 +18,23 @@ C:\Users\Jeremy\source\repos\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.csp
 C:\Users\Jeremy\source\repos\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\AutomaticGraphLayout.dll
 C:\Users\Jeremy\source\repos\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\AutomaticGraphLayout.Drawing.dll
 C:\Users\Jeremy\source\repos\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Microsoft.Msagl.WpfGraphControl.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Tubes_2.exe
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Tubes_2.deps.json
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Tubes_2.runtimeconfig.json
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Tubes_2.runtimeconfig.dev.json
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Tubes_2.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Tubes_2.pdb
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\AutomaticGraphLayout.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\AutomaticGraphLayout.Drawing.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\bin\Debug\netcoreapp3.1\Microsoft.Msagl.WpfGraphControl.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.csprojAssemblyReference.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.Form1.resources
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.csproj.GenerateResource.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.AssemblyInfoInputs.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.AssemblyInfo.cs
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.csproj.CopyComplete
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.dll
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.pdb
+C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\Tubes_2\Tubes_2\obj\Debug\netcoreapp3.1\Tubes_2.genruntimeconfig.cache

@@ -97,8 +97,7 @@ namespace Tubes_2
                 Akhir.Items.Add(i.vertex);
             }
 
-            //create a form 
-            System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+            GraphPanel.Controls.Clear();
             //create a viewer object 
             Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             //create a graph object 
@@ -121,10 +120,7 @@ namespace Tubes_2
             GraphPanel.ResumeLayout();
             //show the form 
             GraphPanel.Show();
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -509,7 +505,22 @@ namespace Tubes_2
                 }
             }
             rtb.AppendText("Daftar rekomendasi teman untuk akun " + s + ":\n");
-            friend_recommend.AllInfo(rtb);
+            Boolean HasRecom = false;
+            foreach (node i in friend_recommend.nodes)
+            {
+                if (i.adjCount() > 0)
+                {
+                    HasRecom = true;
+                }
+            }
+            if (HasRecom) {
+                friend_recommend.sortGraphDescAdjCount();
+                friend_recommend.AllInfo(rtb);
+            }
+            else
+            {
+                rtb.AppendText("Tidak ada yang cocok.\n");
+            }
 
         }
 
@@ -531,11 +542,7 @@ namespace Tubes_2
             {
                 nodesWithMutualAdjacent = this.bfs(nodeName, 2);
             }
-            else if (method == "DFS")
-            {
-                // nodesWithMutualAdjacent = this.dfs(nodeName,2);
-                // Kode untuk DFS dengan 2 node dari node dengan nama 'nodeName'
-            }
+            // DFS DIPISAH DI DFSREC
 
             // Sort
             for (int i = 0; i < nodesWithMutualAdjacent.nodes.Count; i++)
@@ -576,6 +583,10 @@ namespace Tubes_2
                 }
                 rtb.AppendText("\n");
             }
+            if(friendRec.nodes.Count()==0)
+            {
+                rtb.AppendText("Tidak ada yang cocok.\n");
+            }
         }
 
         public void friendExplore(string namaNodeAwal, string namaNodeTujuan, string method, RichTextBox rtb)
@@ -590,7 +601,7 @@ namespace Tubes_2
                 ExploreResult = this.dfs(namaNodeAwal, namaNodeTujuan);
             }
             rtb.AppendText("Nama akun: "+namaNodeAwal+" dan "+ namaNodeTujuan+"\n");
-            if (ExploreResult.nodes[ExploreResult.nodes.Count - 1].vertex != namaNodeTujuan) 
+            if (!ExploreResult.contain(namaNodeTujuan))
             {
                 rtb.AppendText("Tidak ada jalur koneksi yang tersedia\n");
                 rtb.AppendText("Anda harus memulai koneksi baru itu sendiri.\n");
@@ -618,6 +629,26 @@ namespace Tubes_2
                 ExploreResult.AllVertexWithArrow(rtb);
             }
 
+        }
+
+        public void sortGraphDescAdjCount ()
+        {
+            for (int i = 0; i < this.nodes.Count; i++)
+            {
+                int maxIdx = i;
+                for (int j = i + 1; j < this.nodes.Count; j++)
+                {
+                    if (this.nodes[maxIdx].adjCount() < this.nodes[j].adjCount())
+                    {
+                        maxIdx = j;
+                    }
+                }
+                if (maxIdx != i) { 
+                    node swap = this.nodes[i];
+                    this.nodes[i] = this.nodes[maxIdx];
+                    this.nodes[maxIdx] = swap;
+                }
+            }
         }
 
 

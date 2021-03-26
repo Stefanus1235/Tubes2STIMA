@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jeremy\\source\\repos\\Tubes_2\\Tubes_2\\Tubes_2.csproj": {}
+    "C:\\Users\\Jeremy\\Documents\\Backup Jeremy 5 Sep 20\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes2\\Tubes2STIMA\\src\\Tubes_2\\Tubes_2\\Tubes_2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jeremy\\source\\repos\\Tubes_2\\Tubes_2\\Tubes_2.csproj": {
+    "C:\\Users\\Jeremy\\Documents\\Backup Jeremy 5 Sep 20\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes2\\Tubes2STIMA\\src\\Tubes_2\\Tubes_2\\Tubes_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jeremy\\source\\repos\\Tubes_2\\Tubes_2\\Tubes_2.csproj",
+        "projectUniqueName": "C:\\Users\\Jeremy\\Documents\\Backup Jeremy 5 Sep 20\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes2\\Tubes2STIMA\\src\\Tubes_2\\Tubes_2\\Tubes_2.csproj",
         "projectName": "Tubes_2",
-        "projectPath": "C:\\Users\\Jeremy\\source\\repos\\Tubes_2\\Tubes_2\\Tubes_2.csproj",
+        "projectPath": "C:\\Users\\Jeremy\\Documents\\Backup Jeremy 5 Sep 20\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes2\\Tubes2STIMA\\src\\Tubes_2\\Tubes_2\\Tubes_2.csproj",
         "packagesPath": "C:\\Users\\Jeremy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jeremy\\source\\repos\\Tubes_2\\Tubes_2\\obj\\",
+        "outputPath": "C:\\Users\\Jeremy\\Documents\\Backup Jeremy 5 Sep 20\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes2\\Tubes2STIMA\\src\\Tubes_2\\Tubes_2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
