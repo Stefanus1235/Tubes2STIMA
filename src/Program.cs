@@ -210,23 +210,26 @@ namespace Tubes_2
             node node_awal = this.nodes[searchIdxNode(awal)];
             node node_tujuan = this.nodes[searchIdxNode(tujuan)];
             graph travelled_node = new graph();
+            graph result = new graph();
             travelled_node.addNode(node_awal);
-            dfs_rek(node_awal,node_tujuan,travelled_node);
-            return (travelled_node);
+            dfs_rek(node_awal,node_tujuan,travelled_node, result);
+            result.AllVertex();
+            return result;
         }
 
         
 
-        public void dfs_rek(node aktif,node tujuan,graph trav){
+        public void dfs_rek(node aktif,node tujuan,graph trav, graph result){
             if (aktif == tujuan){
             
-                Console.WriteLine("ketemu");
                 flag.ketemu = true;
                 
-                trav.AllVertex();
+                foreach (node i in trav.nodes){
+                    result.nodes.Add(i);
+                }
             }
             
-            else {
+            else if(flag.ketemu == false) {
                 if (aktif.adjCount() == 0 || aktif.AllAdjVisited(trav)){
                     Console.WriteLine("Dead End");
                 }
@@ -243,9 +246,8 @@ namespace Tubes_2
                                 if (!travelled.contain(i.vertex))
                                 {
                                     travelled.addNode(i);
-                                    dfs_rek(i,tujuan,travelled);
+                                    dfs_rek(i,tujuan,travelled,result);
                                     if (travelled.contain(tujuan.vertex)){
-                                        Console.WriteLine("cok");
                                         return;    
                                     }
                                     
@@ -455,7 +457,7 @@ namespace Tubes_2
         {
             graph a = new graph();
             // Untuk Read File
-            string[] lines = System.IO.File.ReadAllLines(@"E:\ITB\Semester_4\Stima\Tubes2STIMA\src\tes1.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Jeremy\Documents\Backup Jeremy 5 Sep 20\Kuliah\Semester 4\Strategi Algoritma\Tubes2\Tubes2STIMA\src\tes.txt");
             foreach (string line in lines)
             {
                 string[] y = line.Split(" ");
@@ -519,7 +521,11 @@ namespace Tubes_2
             foreach(node i in a.nodes){
                 i.adjacent.Sort((x, y) => x.vertex.CompareTo(y.vertex));
             }
-            a.AllInfo();
+            a.AllVertexWithArrow();
+            graph g = a.dfs("A","G");
+            g.AllVertexWithArrow();
+
+            //graph g = a.dfs("A","G");
             //udah ke sort semua, jadi ngga bingung tentang alphabetical order dalam search
         }
     }

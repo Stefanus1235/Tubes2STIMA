@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "/yzWlLIKKgU0Up8pKy4/JP8VZfAkvPHloqqNIoeoLdb7/KUMGNhEjoLCZnaoolWj5UwzqoVo392ziCdngvGsPQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jeremy\\source\\repos\\Tubes_2\\Tubes_2\\Tubes_2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jeremy\\.nuget\\packages\\automaticgraphlayout\\1.1.11\\automaticgraphlayout.1.1.11.nupkg.sha512",
+    "C:\\Users\\Jeremy\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.11\\automaticgraphlayout.drawing.1.1.11.nupkg.sha512",
+    "C:\\Users\\Jeremy\\.nuget\\packages\\automaticgraphlayout.graphviewergdi\\1.1.11\\automaticgraphlayout.graphviewergdi.1.1.11.nupkg.sha512",
+    "C:\\Users\\Jeremy\\.nuget\\packages\\automaticgraphlayout.wpfgraphcontrol\\1.1.11\\automaticgraphlayout.wpfgraphcontrol.1.1.11.nupkg.sha512"
+  ],
+  "logs": []
+}
